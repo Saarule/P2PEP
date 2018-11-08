@@ -30,6 +30,11 @@ contract P2pep {
   function addConsumer(string name) public {
     consumers[0] = Consumer(msg.sender, name);
   }
+  function addProvider(string name) public {
+    consumers[0] = Consumer(msg.sender, name);
+  }
 
+  }
+  
 
 }
