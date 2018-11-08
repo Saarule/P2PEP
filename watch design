@@ -6,13 +6,12 @@ consumption price in ether per kW.
 chrome with metamask
 
 watch simulator
+//control bar for power consumption
+uint256
+//control bar for power producing
+uint256
+//network price
+uint256
 
-
-another watch
-
-
-
-control room
-sell situation
 
 /*
