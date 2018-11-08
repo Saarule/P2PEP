@@ -1,14 +1,14 @@
 */
 nodeJS watch:
 small screen interface with + / - number.
-consumption price in ether per kW.
+consumption /  price in ether per kW.
 
 chrome with metamask
 
 //watch simulator controls
 //control bar for power consumption
 uint256
-//control bar for power producing
+//control bar for power production
 uint256
 //Max kWh price
 uint256
