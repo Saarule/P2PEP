@@ -3,6 +3,7 @@ pragma solidity ^0.4.23;
 contract P2pep {
 
   address public owner;
+  uint constant priceFactor = 2*(10**16);
   modifier restricted() {
     if (msg.sender == owner) _;
   }
@@ -33,7 +34,13 @@ contract P2pep {
   function addProvider(string name) public {
     consumers[0] = Consumer(msg.sender, name);
   }
+  function buyElectricity (uint32 purchasedAmount, address providerAddress) public payable {
+    uint purchasedDeal = priceFactor*purchasedAmount;
 
+     require (msg.value > purchasedDeal, "Hey! Not enough ether!");
+      provider.transfer(purchasedAmount);
+  }
+  
   
 
 }
