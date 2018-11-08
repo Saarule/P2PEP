@@ -32,13 +32,13 @@ contract P2pep {
     consumers[0] = Consumer(msg.sender, name);
   }
   function addProvider(string name) public {
-    consumers[0] = Consumer(msg.sender, name);
+    consumers[0] = Consumer(msg.sender, name); // todp - fix to pro
   }
-  function buyElectricity (uint32 purchasedAmount, address providerAddress) public payable {
-    uint purchasedDeal = priceFactor*purchasedAmount;
+  function buyElectricity (address providerAddress) public payable {
+    uint purchasedDeal = priceFactor*msg.value;
 
-     require (msg.value > purchasedDeal, "Hey! Not enough ether!");
-      provider.transfer(purchasedAmount);
+     require (msg.value >= purchasedDeal, "Hey! Not enough ether!");
+     providerAddress.transfer(msg.value);
   }
   
   
