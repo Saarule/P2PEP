@@ -34,7 +34,6 @@ contract P2pep {
     consumers[0] = Consumer(msg.sender, name);
   }
 
-  }
   
 
 }
