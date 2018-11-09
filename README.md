@@ -12,7 +12,7 @@ P2PEP Hackathon Scope
 
 Team
 Saar Yazdi
-Adi Shimoni
+Ady Shimony
 Yonatan Cohen
 Ran Zaltzman
 Ariel Saghiv
