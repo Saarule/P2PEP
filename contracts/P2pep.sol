@@ -54,7 +54,7 @@ contract P2pep {
 
   // this function is called by the consumer
   function startConsume(address _providerAddress) public payable {
-    uint purchasedDeal = priceFactor * msg.value;
+    uint purchasedDeal = msg.value;
 
     require(msg.value >= purchasedDeal, "Hey! Not enough ether!");
     require(providers[_providerAddress].exist);
