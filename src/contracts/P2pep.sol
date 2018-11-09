@@ -46,7 +46,7 @@ contract P2pep {
 
   function addProvider(string _name, uint32 _totalKW, uint32 _rating) public {
 
-    require(!(providers[msg.sender].exist));
+    require(!providers[msg.sender].exist);
 
     providers[msg.sender] = Provider(msg.sender, _name, _totalKW, _rating, true);
     emit providerAddedEvent(msg.sender);
