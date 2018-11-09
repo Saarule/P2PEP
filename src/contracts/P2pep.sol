@@ -3,10 +3,8 @@ pragma solidity ^0.4.23;
 contract P2pep {
 
   event consumerAddedEvent (address indexed consumerAddress);
-
   event providerAddedEvent (address indexed providerAddress);
-
-  event startConsumeEvent (uint indexed _candidateId);
+  event startConsumeEvent (address indexed providerAddress, address indexed consumerAddress);
 
   address public owner;
   uint constant priceFactor = 2*(10**16);
@@ -53,10 +51,10 @@ contract P2pep {
   }
 
   // this function is called by the consumer
-  function buyElectricity (address providerAddress) public payable {
+  function startConsume(address providerAddress) public payable {
     uint purchasedDeal = priceFactor * msg.value;
 
-    require (msg.value >= purchasedDeal, "Hey! Not enough ether!");
+    require(msg.value >= purchasedDeal, "Hey! Not enough ether!");
     require(!providers[providerAddress].exist);
     require(!providers[providerAddress].consumers[msg.sender].exist);
 
@@ -64,5 +62,6 @@ contract P2pep {
     providerAddress.transfer(msg.value);
     providers[providerAddress].consumers[msg.sender] = Consumer(msg.sender, consumers[msg.sender].consumerName, true);
 
+    emit startConsumeEvent(providerAddress, msg.sender);
   }
 }
