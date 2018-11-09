@@ -1,0 +1,144 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"name": "addConsumer",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_totalKW",
+				"type": "uint32"
+			},
+			{
+				"name": "_rating",
+				"type": "uint32"
+			}
+		],
+		"name": "addProvider",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_providerAddress",
+				"type": "address"
+			}
+		],
+		"name": "startConsume",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_providerAddress",
+				"type": "address"
+			}
+		],
+		"name": "stopConsume",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "consumerAddress",
+				"type": "address"
+			}
+		],
+		"name": "consumerAddedEvent",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "providerAddress",
+				"type": "address"
+			}
+		],
+		"name": "providerAddedEvent",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "providerAddress",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "consumerAddress",
+				"type": "address"
+			}
+		],
+		"name": "startConsumeEvent",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "providerAddress",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "consumerAddress",
+				"type": "address"
+			}
+		],
+		"name": "stopConsumeEvent",
+		"type": "event"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
