@@ -38,7 +38,7 @@ contract P2pep {
 
   function addConsumer(string _name) public {
 
-    require(consumers[msg.sender].exist, "allready exist");
+    require(!consumers[msg.sender].exist, "allready exist");
 
     consumers[msg.sender] = Consumer(msg.sender, _name, true);
     emit consumerAddedEvent(msg.sender);
