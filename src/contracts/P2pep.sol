@@ -5,6 +5,8 @@ contract P2pep {
   event consumerAddedEvent (address indexed consumerAddress);
   event providerAddedEvent (address indexed providerAddress);
   event startConsumeEvent (address indexed providerAddress, address indexed consumerAddress);
+  event stopConsumeEvent (address indexed providerAddress, address indexed consumerAddress);
+
 
   address public owner;
   uint constant priceFactor = 2*(10**16);
@@ -63,5 +65,17 @@ contract P2pep {
     providers[_providerAddress].consumers[msg.sender] = Consumer(msg.sender, consumers[msg.sender].consumerName, true);
 
     emit startConsumeEvent(_providerAddress, msg.sender);
+  }
+
+    // this function is called by the consumer
+  function stopConsume(address _providerAddress) public payable {
+
+    require(providers[_providerAddress].exist);
+    require(providers[_providerAddress].consumers[msg.sender].exist);
+
+    // remove the consumer from the provider consuemrs list
+    delete providers[_providerAddress].consumers[msg.sender];
+
+    emit stopConsumeEvent(_providerAddress, msg.sender);
   }
 }
