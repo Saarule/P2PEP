@@ -34,34 +34,34 @@ contract P2pep {
       owner = msg.sender;
   }
 
-  function addConsumer(string name) public {
+  function addConsumer(string _name) public {
 
     require(consumers[msg.sender].exist, "allready exist");
 
-    consumers[msg.sender] = Consumer(msg.sender, name, true);
+    consumers[msg.sender] = Consumer(msg.sender, _name, true);
     emit consumerAddedEvent(msg.sender);
   }
 
-  function addProvider(string name, uint32 totalKW, uint32 rating) public {
+  function addProvider(string _name, uint32 _totalKW, uint32 _rating) public {
 
     require(!(providers[msg.sender].exist));
 
-    providers[msg.sender] = Provider(msg.sender, name, totalKW, rating, true);
+    providers[msg.sender] = Provider(msg.sender, _name, _totalKW, _rating, true);
     emit providerAddedEvent(msg.sender);
   }
 
   // this function is called by the consumer
-  function startConsume(address providerAddress) public payable {
+  function startConsume(address _providerAddress) public payable {
     uint purchasedDeal = priceFactor * msg.value;
 
     require(msg.value >= purchasedDeal, "Hey! Not enough ether!");
-    require(!providers[providerAddress].exist);
-    require(!providers[providerAddress].consumers[msg.sender].exist);
+    require(providers[_providerAddress].exist);
+    require(!providers[_providerAddress].consumers[msg.sender].exist);
 
     // transfer from the consumer ( the sender ) to the provider
-    providerAddress.transfer(msg.value);
-    providers[providerAddress].consumers[msg.sender] = Consumer(msg.sender, consumers[msg.sender].consumerName, true);
+    _providerAddress.transfer(msg.value);
+    providers[_providerAddress].consumers[msg.sender] = Consumer(msg.sender, consumers[msg.sender].consumerName, true);
 
-    emit startConsumeEvent(providerAddress, msg.sender);
+    emit startConsumeEvent(_providerAddress, msg.sender);
   }
 }
