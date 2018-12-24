@@ -9,3 +9,9 @@ In addition, the P2PEP trading platform strives to push for its adoption by gree
 
 Another important mission of P2PEP is to give back. That is why we will engage in projects aimed at bringing clean energy solutions in areas that have poor energy infrastructure but plenty of opportunities to produce clean energy.
 
+Website:
+www.p2pep.com
+
+Donations:
+0x5510c49B2b9029027Ca3288f44F4F3FBaCf2143F
+
